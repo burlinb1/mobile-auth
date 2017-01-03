@@ -1,0 +1,7 @@
+<StackLayout login-panel>
+    <TextField [(ngModel)]="userName" class="input input-border" hint="User name"></TextField>
+    <TextField [(ngModel)]="password" class="input input-border" hint="Password" autocorrect="false" secure="true" row="2" col="1" returnKeyType="next"></TextField>
+    <Button text="Login" class="btn btn-primary btn-active" (tap)="onLogin()"></Button>        
+    <ActivityIndicator busy="false">                        
+    </ActivityIndicator>   
+</StackLayout>
