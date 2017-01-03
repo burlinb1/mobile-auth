@@ -7,16 +7,11 @@ var ApplicationSettings = (function () {
         //appSettings.setString("password", "SuperUser");
         //appSettings.setString("clientId", "daf3341fa95741d29a23ae39fb559c4a");
         appSettings.setString("clientId", "822e15aa75c343ffb769a336d9685dcd");
-        //appSettings.setString("authTokenUrl", "http://172.16.200.67/AuthApi/token");
-        appSettings.setString("authTokenUrl", "http://10.0.0.41/AuthApi/token");
-        appSettings.setString("registerAudienceUrl", "http://10.0.0.41/AuthApi/api/audience");
-        //this.clientId = "daf3341fa95741d29a23ae39fb559c4a";
-        // Wireless LAN adapter Wi-Fi
-        //let url = "http://10.0.0.41/AuthApi/token";
-        //let url = "http://172.16.200.67/AuthApi/token";
-        //
-        //let url = "http://10.0.0.41/AuthApi/api/audience";
-        //let url = "http://172.16.200.67/AuthApi/api/audience";
+        // Replace ip in URL with ip for "Wireless LAN adapter Wi-Fi"
+        //appSettings.setString("authTokenUrl", "http://10.0.0.41/AuthApi/token");        
+        //appSettings.setString("registerAudienceUrl", "http://10.0.0.41/AuthApi/api/audience");        
+        appSettings.setString("authTokenUrl", "http://172.16.200.66/AuthApi/token");
+        appSettings.setString("registerAudienceUrl", "http://172.16.200.66/AuthApi/api/audience");
     }
     ApplicationSettings.prototype.getString = function (key) {
         return appSettings.getString(key);

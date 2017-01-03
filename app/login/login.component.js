@@ -12,15 +12,18 @@ var LoginComponent = (function () {
     LoginComponent.prototype.onLogin = function () {
         var _this = this;
         this.loginService.getClientId().subscribe(function (response) {
-            //alert(response.ClientId);
             _this.appSettings.setTokenClientId(response.ClientId);
             _this.setAuthToken();
+        }, function (error) {
+            console.log("Error occurred while getting token client id");
         });
     };
     LoginComponent.prototype.setAuthToken = function () {
         console.log("Authenticating as " + this.userName + "...");
         this.loginService.getAuthToken(this.userName, this.password).subscribe(function (response) {
             alert(response.access_token);
+        }, function (error) {
+            console.log("Error occurred while authenticating");
         });
     };
     LoginComponent = __decorate([

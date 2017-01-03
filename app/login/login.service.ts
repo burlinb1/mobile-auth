@@ -22,6 +22,8 @@ export class LoginService {
         
         let url = this.appSettings.getAudienceRegisterUrl();
 
+        console.log("Getting client id...");
+
         return this.http.post(
             url,
             JSON.stringify({Name:"TEST"}), 
@@ -30,7 +32,6 @@ export class LoginService {
             .catch(this.handleErrors);
     }    
 
-    private extractData
     public getAuthToken(userName:string, password:string){
         let headers = new Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
@@ -40,9 +41,9 @@ export class LoginService {
             "&username=" + userName + 
             "&password=" + password;
 
-        // Wireless LAN adapter Wi-Fi
-        //let url = "http://10.0.0.41/AuthApi/token";
         let url = this.appSettings.getAuthTokenUrl();
+
+        console.log("Getting auth token...");
 
         return this.http.post(
             url,

@@ -20,9 +20,11 @@ export class LoginComponent{
         
         this.loginService.getClientId().subscribe(
             response => {
-                //alert(response.ClientId);
                 this.appSettings.setTokenClientId(response.ClientId);
                 this.setAuthToken();
+            },
+            (error: any) => {
+                console.log("Error occurred while getting token client id");
             }
         );        
     } 
@@ -32,7 +34,10 @@ export class LoginComponent{
         this.loginService.getAuthToken(this.userName, this.password).subscribe(
             response => {
                 alert(response.access_token);
-            }
+            },
+            (error: any) => {
+                console.log("Error occurred while authenticating");
+            }        
         );
     }
 }

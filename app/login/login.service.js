@@ -15,6 +15,7 @@ var LoginService = (function () {
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         var url = this.appSettings.getAudienceRegisterUrl();
+        console.log("Getting client id...");
         return this.http.post(url, JSON.stringify({ Name: "TEST" }), { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(this.handleErrors);
@@ -26,9 +27,8 @@ var LoginService = (function () {
             this.appSettings.getTokenClientId() +
             "&username=" + userName +
             "&password=" + password;
-        // Wireless LAN adapter Wi-Fi
-        //let url = "http://10.0.0.41/AuthApi/token";
         var url = this.appSettings.getAuthTokenUrl();
+        console.log("Getting auth token...");
         return this.http.post(url, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(this.handleErrors);
